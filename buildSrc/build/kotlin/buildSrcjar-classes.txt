@@ -1,0 +1,1 @@
+C:\Users\20002\Documents\NewsClient\buildSrc\build\classes\kotlin\main\Config.class;C:\Users\20002\Documents\NewsClient\buildSrc\build\classes\kotlin\main\libs\AndroidCore.class;C:\Users\20002\Documents\NewsClient\buildSrc\build\classes\kotlin\main\libs\Compose.class;C:\Users\20002\Documents\NewsClient\buildSrc\build\classes\kotlin\main\libs\Testing.class
