@@ -1,4 +1,5 @@
 import libs.AndroidCore.androidCore
+import libs.Coil.coil
 import libs.Compose.compose
 import libs.Testing.testing
 
@@ -50,6 +51,7 @@ android {
 dependencies {
     androidCore()
     compose()
+    coil()
 
     testing()
 }
