@@ -1,11 +1,16 @@
 import libs.AndroidCore.androidCore
 import libs.Coil.coil
 import libs.Compose.compose
+import libs.Hilt.hilt
+import libs.Navigation.navigation
+import libs.Networking.networking
 import libs.Testing.testing
 
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id ("dagger.hilt.android.plugin")
+    id ("kotlin-kapt")
 }
 
 android {
@@ -52,6 +57,9 @@ dependencies {
     androidCore()
     compose()
     coil()
+    hilt()
+    navigation()
+    networking()
 
     testing()
 }

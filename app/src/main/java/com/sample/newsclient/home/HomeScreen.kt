@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import com.sample.newsclient.core.Content
 import com.sample.newsclient.core.Failure
@@ -32,7 +33,7 @@ private fun HomePreview() {
 }
 
 @Composable
-fun HomeScreen(viewModel: HomeViewModel) {
+fun HomeScreen(viewModel: HomeViewModel = hiltViewModel()) {
     val screenState = viewModel.screenState.collectAsState()
     when (val state = screenState.value) {
         is Content -> HomeContent(newsItems = state.content)
