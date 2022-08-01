@@ -46,7 +46,7 @@ android {
         jvmTarget = "11"
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-rc02"
+        kotlinCompilerExtensionVersion = "1.3.0-rc01"
     }
     buildFeatures {
         compose = true
@@ -54,6 +54,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":core"))
+    implementation(project(":api"))
+
     androidCore()
     compose()
     coil()

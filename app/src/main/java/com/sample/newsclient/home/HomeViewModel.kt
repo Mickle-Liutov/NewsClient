@@ -3,7 +3,7 @@ package com.sample.newsclient.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sample.newsclient.core.*
-import com.sample.newsclient.models.News
+import com.sample.newsclient.data.models.News
 import com.sample.newsclient.usecases.FetchNewsListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

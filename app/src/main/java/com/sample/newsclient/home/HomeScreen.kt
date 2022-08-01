@@ -1,7 +1,6 @@
 package com.sample.newsclient.home
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
@@ -16,7 +15,7 @@ import coil.compose.AsyncImage
 import com.sample.newsclient.core.Content
 import com.sample.newsclient.core.Failure
 import com.sample.newsclient.core.Progress
-import com.sample.newsclient.models.News
+import com.sample.newsclient.data.models.News
 import com.sample.newsclient.ui.composables.ErrorMessage
 import com.sample.newsclient.ui.composables.Loader
 
