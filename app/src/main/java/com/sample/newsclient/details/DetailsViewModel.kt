@@ -9,6 +9,7 @@ import com.sample.newsclient.data.models.News
 import com.sample.newsclient.navigation.NavigationArgs.NAV_ARG_NEWS_ID
 import com.sample.newsclient.usecases.FetchNewsDetailsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import javax.inject.Inject
@@ -24,14 +25,22 @@ class DetailsViewModel @Inject constructor(
     private val _screenState = MutableStateFlow<ScreenState<News>>(Progress)
     val screenState = _screenState.asStateFlow()
 
+    private var loadDetailsJob: Job? = null
+
     init {
         loadNewsDetails()
     }
 
+    fun onRetryPressed() {
+        loadNewsDetails()
+    }
+
     private fun loadNewsDetails() {
-        viewModelScope.launchCatching(catch = {
+        loadDetailsJob?.cancel()
+        loadDetailsJob = viewModelScope.launchCatching(catch = {
             _screenState.value = Failure(it)
         }) {
+            _screenState.value = Progress
             _screenState.value = Content(fetchNewsDetails.invoke(newsId))
         }
     }

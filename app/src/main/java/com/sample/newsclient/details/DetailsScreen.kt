@@ -24,7 +24,7 @@ import com.sample.newsclient.core.Failure
 import com.sample.newsclient.core.Progress
 import com.sample.newsclient.core.context.startWebIntent
 import com.sample.newsclient.data.models.News
-import com.sample.newsclient.ui.composables.ErrorMessage
+import com.sample.newsclient.ui.composables.ErrorBox
 import com.sample.newsclient.ui.composables.Loader
 
 @Preview
@@ -40,7 +40,9 @@ fun DetailsScreen(navController: NavController, viewModel: DetailsViewModel = hi
         is Content -> DetailsContent(news = state.content) {
             navController.popBackStack()
         }
-        is Failure -> ErrorMessage(e = state.exception)
+        is Failure -> ErrorBox {
+            viewModel.onRetryPressed()
+        }
         Progress -> Loader()
     }
 }

@@ -22,7 +22,7 @@ import com.sample.newsclient.core.Content
 import com.sample.newsclient.core.Failure
 import com.sample.newsclient.core.Progress
 import com.sample.newsclient.data.models.News
-import com.sample.newsclient.ui.composables.ErrorMessage
+import com.sample.newsclient.ui.composables.ErrorBox
 import com.sample.newsclient.ui.composables.Loader
 
 @Preview
@@ -44,7 +44,9 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navController: NavCon
         is Content -> HomeContent(newsItems = state.content) {
             navController.navigate("details/${it.id}")
         }
-        is Failure -> ErrorMessage(e = state.exception)
+        is Failure -> ErrorBox {
+            viewModel.onRetryPressed()
+        }
         Progress -> Loader()
     }
 }
