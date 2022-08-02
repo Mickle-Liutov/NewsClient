@@ -33,5 +33,4 @@ dependencies {
     androidCore()
     hilt()
     networking()
-    compose()
 }

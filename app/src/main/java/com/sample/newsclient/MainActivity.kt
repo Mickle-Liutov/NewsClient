@@ -16,7 +16,7 @@ import androidx.navigation.navArgument
 import com.sample.newsclient.details.DetailsScreen
 import com.sample.newsclient.home.HomeScreen
 import com.sample.newsclient.navigation.NavigationArgs.NAV_ARG_NEWS_ID
-import com.sample.newsclient.core.ui.theme.NewsClientTheme
+import com.sample.newsclient.ui.theme.NewsClientTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -24,8 +24,8 @@ import com.sample.newsclient.core.Failure
 import com.sample.newsclient.core.Progress
 import com.sample.newsclient.core.context.startWebIntent
 import com.sample.newsclient.data.models.News
-import com.sample.newsclient.core.ui.composables.ErrorMessage
-import com.sample.newsclient.core.ui.composables.Loader
+import com.sample.newsclient.ui.composables.ErrorMessage
+import com.sample.newsclient.ui.composables.Loader
 
 @Preview
 @Composable

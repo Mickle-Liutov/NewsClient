@@ -10,12 +10,22 @@ import libs.Testing.testing
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id ("dagger.hilt.android.plugin")
-    id ("kotlin-kapt")
+    id("dagger.hilt.android.plugin")
+    id("kotlin-kapt")
 }
 
 android {
     compileSdk = Config.COMPILE_SDK
+
+    signingConfigs {
+        create("release") {
+            storeFile = file("../keystore/newsclient-keys.jks")
+            storePassword = "9%a9&8cEXIHe"
+            keyAlias = "key0"
+            keyPassword = "9%a9&8cEXIHe"
+        }
+    }
+
 
     defaultConfig {
         applicationId = "com.sample.newsclient"
@@ -32,7 +42,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"

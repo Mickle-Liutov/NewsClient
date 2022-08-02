@@ -1,4 +1,4 @@
-package com.sample.newsclient.core.ui.theme
+package com.sample.newsclient.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
