@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
 fun MainNavHost() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "home") {
-        composable("home") { HomeScreen() }
+        composable("home") { HomeScreen(navController = navController) }
         composable("details") { DetailsScreen(hiltViewModel()) }
     }
 }
