@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "NewsClient"
 include ':app'
+include ':api'
+include ':core'
