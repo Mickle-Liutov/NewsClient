@@ -1,6 +1,5 @@
-package com.sample.newsclient.api
+package com.sample.newsclient.api.data
 
-import com.sample.newsclient.api.data.NewsResponse
 import com.sample.newsclient.core.coroutines.DispatchersProvider
 import com.sample.newsclient.core.networking.toBody
 import kotlinx.coroutines.withContext

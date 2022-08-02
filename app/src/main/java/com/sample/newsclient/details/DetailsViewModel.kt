@@ -32,7 +32,7 @@ class DetailsViewModel @Inject constructor(
         viewModelScope.launchCatching(catch = {
             _screenState.value = Failure(it)
         }) {
-            _screenState.value = Content(fetchNewsDetails.invoke())
+            _screenState.value = Content(fetchNewsDetails.invoke(newsId))
         }
     }
 

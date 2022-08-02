@@ -6,11 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -19,7 +16,7 @@ import androidx.navigation.navArgument
 import com.sample.newsclient.details.DetailsScreen
 import com.sample.newsclient.home.HomeScreen
 import com.sample.newsclient.navigation.NavigationArgs.NAV_ARG_NEWS_ID
-import com.sample.newsclient.ui.theme.NewsClientTheme
+import com.sample.newsclient.core.ui.theme.NewsClientTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

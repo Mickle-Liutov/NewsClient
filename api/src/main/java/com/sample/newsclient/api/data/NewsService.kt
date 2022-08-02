@@ -1,4 +1,4 @@
-package com.sample.newsclient.api
+package com.sample.newsclient.api.data
 
 import com.sample.newsclient.api.data.NewsListResponse
 import retrofit2.Response

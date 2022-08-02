@@ -2,7 +2,6 @@ package com.sample.newsclient.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
@@ -23,17 +22,17 @@ import com.sample.newsclient.core.Content
 import com.sample.newsclient.core.Failure
 import com.sample.newsclient.core.Progress
 import com.sample.newsclient.data.models.News
-import com.sample.newsclient.ui.composables.ErrorMessage
-import com.sample.newsclient.ui.composables.Loader
+import com.sample.newsclient.core.ui.composables.ErrorMessage
+import com.sample.newsclient.core.ui.composables.Loader
 
 @Preview
 @Composable
 private fun HomePreview() {
     HomeContent(
         newsItems = listOf(
-            News("1", "1", "Title 1", "", ""),
-            News("2", "1", "Title 2", "", ""),
-            News("3", "1", "Title 3", "", ""),
+            News(1, "1", "Title 1", "", ""),
+            News(2, "1", "Title 2", "", ""),
+            News(3, "1", "Title 3", "", ""),
         )
     ) {}
 }

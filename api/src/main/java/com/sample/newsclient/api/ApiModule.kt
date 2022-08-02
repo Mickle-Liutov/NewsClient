@@ -1,5 +1,7 @@
 package com.sample.newsclient.api
 
+import com.sample.newsclient.api.data.NewsDataSource
+import com.sample.newsclient.api.data.NewsService
 import com.sample.newsclient.api.moshi.ZonedDateTimeAdapter
 import com.sample.newsclient.core.coroutines.DispatchersProvider
 import com.squareup.moshi.Moshi

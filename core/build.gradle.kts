@@ -1,4 +1,5 @@
 import libs.AndroidCore.androidCore
+import libs.Compose.compose
 import libs.Hilt.hilt
 import libs.Networking.networking
 
@@ -32,4 +33,5 @@ dependencies {
     androidCore()
     hilt()
     networking()
+    compose()
 }

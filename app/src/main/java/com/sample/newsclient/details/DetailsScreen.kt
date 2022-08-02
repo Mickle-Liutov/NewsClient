@@ -24,13 +24,13 @@ import com.sample.newsclient.core.Failure
 import com.sample.newsclient.core.Progress
 import com.sample.newsclient.core.context.startWebIntent
 import com.sample.newsclient.data.models.News
-import com.sample.newsclient.ui.composables.ErrorMessage
-import com.sample.newsclient.ui.composables.Loader
+import com.sample.newsclient.core.ui.composables.ErrorMessage
+import com.sample.newsclient.core.ui.composables.Loader
 
 @Preview
 @Composable
 fun DetailsScreenPreview() {
-    DetailsContent(news = News("", "", "Title", "Content of the news", "")) {}
+    DetailsContent(news = News(0, "", "Title", "Content of the news", "")) {}
 }
 
 @Composable
@@ -78,7 +78,7 @@ fun DetailsContent(news: News, onBackPressed: () -> Unit) {
             modifier = Modifier.padding(top = 16.dp, start = 16.dp, end = 16.dp)
         )
         Text(
-            text = news.content.orEmpty(),
+            text = news.description.orEmpty(),
             style = MaterialTheme.typography.body1,
             modifier = Modifier.padding(top = 8.dp, start = 16.dp, end = 16.dp)
         )

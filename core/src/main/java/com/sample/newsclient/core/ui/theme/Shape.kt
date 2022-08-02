@@ -1,4 +1,4 @@
-package com.sample.newsclient.ui.theme
+package com.sample.newsclient.core.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

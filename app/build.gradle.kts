@@ -4,6 +4,7 @@ import libs.Compose.compose
 import libs.Hilt.hilt
 import libs.Navigation.navigation
 import libs.Networking.networking
+import libs.Room.room
 import libs.Testing.testing
 
 plugins {
@@ -63,6 +64,7 @@ dependencies {
     hilt()
     navigation()
     networking()
+    room()
 
     testing()
 }

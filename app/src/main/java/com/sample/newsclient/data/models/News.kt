@@ -1,9 +1,9 @@
 package com.sample.newsclient.data.models
 
 data class News(
-    val id: String,
+    val id: Int,
     val url: String,
     val title: String,
-    val content: String?,
+    val description: String?,
     val imageUrl: String?
 )
