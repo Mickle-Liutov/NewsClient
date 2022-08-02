@@ -3,7 +3,7 @@ package com.sample.newsclient.modules
 import android.content.Context
 import com.sample.newsclient.R
 import com.sample.newsclient.api.ApiConfig
-import com.sample.newsclient.secrets.NdkSecretsProvider
+import com.sample.newsclient.secrets.SimpleSecretsProvider
 import com.sample.newsclient.secrets.SecretsProvider
 import dagger.Module
 import dagger.Provides
@@ -28,5 +28,5 @@ object ConfigurationModule {
 
     @Provides
     @Reusable
-    fun provideNdkSecretsProvider(): SecretsProvider = NdkSecretsProvider()
+    fun provideSimpleSecretsProvider(): SecretsProvider = SimpleSecretsProvider()
 }
