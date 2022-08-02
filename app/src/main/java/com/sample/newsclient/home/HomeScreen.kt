@@ -4,9 +4,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.Button
-import androidx.compose.material.Divider
-import androidx.compose.material.Text
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
@@ -32,9 +31,9 @@ import com.sample.newsclient.ui.composables.Loader
 private fun HomePreview() {
     HomeContent(
         newsItems = listOf(
-            News("1", "Title 1", ""),
-            News("1", "Title 2", ""),
-            News("1", "Title 3", ""),
+            News("1", "1", "Title 1", "", ""),
+            News("2", "1", "Title 2", "", ""),
+            News("3", "1", "Title 3", "", ""),
         )
     ) {}
 }
@@ -44,7 +43,7 @@ fun HomeScreen(viewModel: HomeViewModel = hiltViewModel(), navController: NavCon
     val screenState = viewModel.screenState.collectAsState()
     when (val state = screenState.value) {
         is Content -> HomeContent(newsItems = state.content) {
-            navController.navigate("details")
+            navController.navigate("details/${it.id}")
         }
         is Failure -> ErrorMessage(e = state.exception)
         Progress -> Loader()
@@ -57,7 +56,7 @@ private fun HomeContent(newsItems: List<News>, onNavigateDetails: (News) -> Unit
         itemsIndexed(newsItems) { index, item ->
             HomeRow(newsItem = item, onNavigateDetails)
             if (index < newsItems.lastIndex) {
-                Divider()
+                Spacer(modifier = Modifier.height(8.dp))
             }
         }
     }
@@ -68,37 +67,41 @@ private fun HomeRow(newsItem: News, onNavigateDetails: (News) -> Unit) {
     val isExpanded = rememberSaveable {
         mutableStateOf(false)
     }
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        AsyncImage(
-            model = newsItem.imageUrl,
-            contentDescription = null,
+    Card(shape = RoundedCornerShape(8.dp), modifier = Modifier.padding(horizontal = 8.dp)) {
+        Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(2f)
-        )
-        Text(
-            text = newsItem.title,
-            modifier = Modifier.padding(top = 8.dp, start = 8.dp, end = 8.dp)
-        )
-        Button(
-            onClick = { isExpanded.value = !isExpanded.value },
-            modifier = Modifier.padding(top = 8.dp, start = 8.dp, end = 8.dp)
+                .padding(vertical = 8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            val text = when (isExpanded.value) {
-                true -> R.string.home_button_collapse
-                false -> R.string.home_button_expand
-            }.let { stringResource(id = it) }
-            Text(text = text)
-        }
-        if (isExpanded.value) {
-            Button(onClick = { onNavigateDetails.invoke(newsItem) }) {
-                Text(text = stringResource(id = R.string.home_button_details))
+            AsyncImage(
+                model = newsItem.imageUrl,
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(2f)
+            )
+            Text(
+                text = newsItem.title,
+                modifier = Modifier.padding(top = 8.dp, start = 8.dp, end = 8.dp),
+                style = MaterialTheme.typography.h6
+            )
+            Button(
+                onClick = { isExpanded.value = !isExpanded.value },
+                modifier = Modifier.padding(top = 8.dp, start = 8.dp, end = 8.dp)
+            ) {
+                val text = when (isExpanded.value) {
+                    true -> R.string.home_button_collapse
+                    false -> R.string.home_button_expand
+                }.let { stringResource(id = it) }
+                Text(text = text)
+            }
+            if (isExpanded.value) {
+                Button(onClick = { onNavigateDetails.invoke(newsItem) }) {
+                    Text(text = stringResource(id = R.string.home_button_details))
+                }
             }
         }
     }
+
 }

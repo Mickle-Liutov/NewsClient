@@ -6,6 +6,7 @@ import com.sample.newsclient.api.NewsDataSource
 import com.sample.newsclient.data.NewsRepository
 import com.sample.newsclient.data.converters.NewsConverter
 import com.sample.newsclient.secrets.SecretsProvider
+import com.sample.newsclient.usecases.FetchNewsDetailsUseCase
 import com.sample.newsclient.usecases.FetchNewsListUseCase
 import dagger.Module
 import dagger.Provides
@@ -31,5 +32,9 @@ object MainModule {
     @Provides
     fun provideFetchNewsListUseCase(newsRepository: NewsRepository): FetchNewsListUseCase =
         FetchNewsListUseCase(newsRepository)
+
+    @Provides
+    fun provideFetchNewsDetailsUseCase(newsRepository: NewsRepository): FetchNewsDetailsUseCase =
+        FetchNewsDetailsUseCase(newsRepository)
 
 }

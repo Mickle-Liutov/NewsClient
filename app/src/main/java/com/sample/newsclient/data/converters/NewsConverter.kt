@@ -7,7 +7,7 @@ class NewsConverter {
 
     fun fromResponse(newsResponse: NewsResponse): News {
         return with(newsResponse) {
-            News(url, title, imageUrl)
+            News("1", url, title, imageUrl,"") //TODO Set id, content
         }
     }
 

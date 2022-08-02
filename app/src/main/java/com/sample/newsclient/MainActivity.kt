@@ -11,11 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.sample.newsclient.details.DetailsScreen
 import com.sample.newsclient.home.HomeScreen
+import com.sample.newsclient.navigation.NavigationArgs.NAV_ARG_NEWS_ID
 import com.sample.newsclient.ui.theme.NewsClientTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,6 +45,9 @@ fun MainNavHost() {
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = "home") {
         composable("home") { HomeScreen(navController = navController) }
-        composable("details") { DetailsScreen(hiltViewModel()) }
+        composable(
+            "details/{${NAV_ARG_NEWS_ID}}",
+            arguments = listOf(navArgument(NAV_ARG_NEWS_ID) { type = NavType.IntType })
+        ) { DetailsScreen(navController = navController) }
     }
 }
